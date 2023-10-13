@@ -107,17 +107,22 @@ function getRandomQuote() {
  */
 function printQuote() {
   const randomQuote = getRandomQuote();
+
+  // create initial html with mandatory quote properties
   let quoteHtml = `<p class="quote"> ${randomQuote.quote} </p>
   <p class="source"> ${randomQuote.source} `;
 
+  // if the quote has a citation property, then add it to the html
   if (randomQuote.citation) {
     quoteHtml += `<span class="citation">${randomQuote.citation}</span>`;
   }
 
+  // if the quote has a year property, then add it to the html
   if (randomQuote.year) {
     quoteHtml += `<span class="citation">${randomQuote.year}</span>`;
   }
 
+  // close the p html tag
   quoteHtml += "</p>";
 
   document.getElementById("quote-box").innerHTML = quoteHtml;
@@ -131,3 +136,10 @@ function printQuote() {
 document
   .getElementById("load-quote")
   .addEventListener("click", printQuote, false);
+
+/**
+ * Automatically print out another quote every 10 seconds
+ */
+(function () {
+  setInterval(printQuote, 10000);
+})();
