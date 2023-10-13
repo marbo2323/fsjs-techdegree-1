@@ -98,7 +98,7 @@ const quotes = [
  */
 function getRandomQuote() {
   // idea of generating random number in range: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-  const randomIndex = Math.floor(Math.random() * (quotes.length - 1));
+  const randomIndex = Math.floor(Math.random() * quotes.length);
   return quotes[randomIndex];
 }
 
